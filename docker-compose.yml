@@ -1,0 +1,18 @@
+version: '3.8'  # Ensure you use version 3.8 or higher
+
+services:
+  gpu_app:
+    image: gpu_image
+    ports:
+      - "5006:5006"
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1  # Number of GPUs to allocate ('all' or specific number)
+            capabilities: [gpu]
+
+
+
+
